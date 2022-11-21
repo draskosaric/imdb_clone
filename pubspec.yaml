@@ -1,0 +1,82 @@
+name: imdb_clone
+description: IMDb app clone for Q Agency
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  #Networking
+  dio: ^4.0.6
+
+  #Storage
+  objectbox: ^1.6.2
+  objectbox_flutter_libs: any
+  shared_preferences: ^2.0.15
+
+  #json annotation
+  json_annotation: ^4.7.0
+
+  #Splash screen
+  flutter_native_splash: ^2.2.14
+
+  #Equatable
+  equatable: ^2.0.5
+
+  #Bloc
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  bloc_concurrency: ^0.2.0
+
+  #Navigation
+  go_router: ^5.1.6
+  url_strategy: ^0.2.0
+
+  #SVG support
+  flutter_svg: ^1.1.6
+  path_provider: ^2.0.11
+
+  #Cached images
+  cached_network_image: ^3.2.2
+
+  #Local notifications
+  flutter_local_notifications: ^12.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+  json_serializable: ^6.5.4
+
+  build_runner: ^2.1.11
+  objectbox_generator: any
+
+  flutter_launcher_icons: ^0.11.0
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/q_logo_huge.png"
+
+
+flutter_native_splash:
+  color: "#0E1324"
+  image: assets/icons/q_logo.png
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+   - assets/icons/
+   - assets/images/

@@ -1,0 +1,98 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5994564418711685801",
+      "lastPropertyId": "2:6159620912149066498",
+      "name": "GenreDao",
+      "properties": [
+        {
+          "id": "1:2740410613992810097",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:6159620912149066498",
+          "name": "name",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:622329048811960612",
+      "lastPropertyId": "1:6029153337529235428",
+      "name": "FavouritesDao",
+      "properties": [
+        {
+          "id": "1:6029153337529235428",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:754162609923311524",
+      "lastPropertyId": "6:6847159463061286121",
+      "name": "MovieDao",
+      "properties": [
+        {
+          "id": "1:6956745199226798423",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:5058420943989997256",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "3:147666170298441577",
+          "name": "averageVote",
+          "type": 8
+        },
+        {
+          "id": "4:4999448752604924358",
+          "name": "description",
+          "type": 9
+        },
+        {
+          "id": "5:2668011342445838021",
+          "name": "orderNumber",
+          "type": 6,
+          "flags": 8,
+          "indexId": "1:9130209663823958080"
+        },
+        {
+          "id": "6:6847159463061286121",
+          "name": "posterPath",
+          "type": 9
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:285547290937923399",
+          "name": "genres",
+          "targetId": "1:5994564418711685801"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "3:754162609923311524",
+  "lastIndexId": "1:9130209663823958080",
+  "lastRelationId": "1:285547290937923399",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
