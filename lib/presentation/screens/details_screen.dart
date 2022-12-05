@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:imdb_clone/common/colors.dart';
+import 'package:imdb_clone/common/const.dart';
 import 'package:imdb_clone/models/movie.dart';
 import 'package:imdb_clone/presentation/screens/square_network_image.dart';
 import 'package:imdb_clone/presentation/widgets/movie_text_info.dart';
@@ -52,7 +53,7 @@ class DetailsScreen extends StatelessWidget {
               height: 66,
               padding: const EdgeInsets.only(left: 16, top: 28, right: 16, bottom: 20),
               child: SvgPicture.asset(
-                'assets/images/arrow_back.svg',
+                backImagePath,
                 color: AppColors.defaultTextColor,
                 height: 10,
                 width: 20,

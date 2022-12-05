@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:imdb_clone/common/colors.dart';
+import 'package:imdb_clone/common/const.dart';
 import 'package:imdb_clone/presentation/screens/list_movies_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -45,13 +46,13 @@ class _HomePageState extends State<HomePage> {
             ),
             BottomNavigationBarItem(
               activeIcon: SvgPicture.asset(
-                'assets/images/fave_icon_checked.svg',
+                checkedFavouriteImagePath,
                 color: AppColors.qDefaultColor,
                 height: 20,
                 width: 20,
               ),
               icon: SvgPicture.asset(
-                'assets/images/fave_icon_checked.svg',
+                checkedFavouriteImagePath,
                 color: Colors.white,
                 height: 20,
                 width: 20,

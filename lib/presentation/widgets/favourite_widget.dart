@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:imdb_clone/bloc/set_favourite/listen_favourite_bloc.dart';
 import 'package:imdb_clone/common/colors.dart';
+import 'package:imdb_clone/common/const.dart';
 import 'package:imdb_clone/models/movie.dart';
 import 'package:imdb_clone/presentation/widgets/loadin_widget.dart';
 
@@ -72,7 +73,7 @@ class FaveIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
-        isFavourite ? "assets/images/fave_icon_checked_filled.svg" : "assets/images/fave_icon.svg",
+        isFavourite ? checkedFavouriteFilledImagePath : favouriteImagePath,
         color: AppColors.qDefaultColor,
         height: 20,
         width: 20,

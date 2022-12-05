@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imdb_clone/common/const.dart';
 import 'package:imdb_clone/common/themes.dart';
 import 'package:imdb_clone/presentation/screens/favourites_page.dart';
 import 'package:imdb_clone/presentation/widgets/popular_movies_list.dart';
@@ -28,7 +29,7 @@ class ListMoviesPage extends StatelessWidget {
             height: 36,
           ),
           Image.asset(
-            "assets/icons/q_logo.png",
+            iconLogoPath,
             width: 40,
           ),
           const SizedBox(
