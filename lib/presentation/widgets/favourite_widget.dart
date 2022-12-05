@@ -6,6 +6,7 @@ import 'package:imdb_clone/common/colors.dart';
 import 'package:imdb_clone/common/const.dart';
 import 'package:imdb_clone/models/movie.dart';
 import 'package:imdb_clone/presentation/widgets/loadin_widget.dart';
+import 'package:imdb_clone/repositories/local/favourites_local_repository.dart';
 
 class FavouriteWidget extends StatelessWidget {
   final Movie movie;
@@ -18,8 +19,8 @@ class FavouriteWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ListenFavouriteBloc>(
-      create: (context) =>
-          ListenFavouriteBloc(RepositoryProvider.of(context))..add(ListFavouriteEventRequested(movieId: movie.id)),
+      create: (context) => ListenFavouriteBloc(RepositoryProvider.of<FavouritesLocalRepository>(context))
+        ..add(ListFavouriteEventRequested(movieId: movie.id)),
       child: BlocBuilder<ListenFavouriteBloc, ListenFavouriteState>(
         buildWhen: (previous, current) => previous != current,
         builder: (context, state) {

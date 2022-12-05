@@ -7,6 +7,8 @@ import 'package:imdb_clone/models/movie.dart';
 import 'package:imdb_clone/presentation/widgets/error_app_widget.dart';
 import 'package:imdb_clone/presentation/widgets/loadin_widget.dart';
 import 'package:imdb_clone/presentation/widgets/movie_list_item.dart';
+import 'package:imdb_clone/repositories/local/favourites_local_repository.dart';
+import 'package:imdb_clone/repositories/local/movies_local_repository.dart';
 
 class FavouritesPage extends StatelessWidget {
   const FavouritesPage({Key? key}) : super(key: key);
@@ -15,8 +17,8 @@ class FavouritesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GetFavouritesBloc(
-        RepositoryProvider.of(context),
-        RepositoryProvider.of(context),
+        RepositoryProvider.of<FavouritesLocalRepository>(context),
+        RepositoryProvider.of<MoviesLocalRepository>(context),
       )..add(const GetFavouriteMoviesEvent()),
       child: BlocBuilder<GetFavouritesBloc, GetFavouritesState>(
         buildWhen: (previous, current) => previous != current,
