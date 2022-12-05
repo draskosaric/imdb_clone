@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:imdb_clone/repositories/local/favourites_local_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_favourites_local_repository.dart';
 
 part 'listen_favourite_event.dart';
 part 'listen_favourite_state.dart';
 
 class ListenFavouriteBloc extends Bloc<ListenFavouriteEvent, ListenFavouriteState> {
-  final FavouritesLocalRepository _favouritesLocalRepository;
+  final IFavouritesLocalRepository _favouritesLocalRepository;
 
   ListenFavouriteBloc(this._favouritesLocalRepository) : super(const ListenFavouriteState()) {
     on<ListFavouriteEventRequested>(_mapListenFavouriteEvent);

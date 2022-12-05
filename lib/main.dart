@@ -36,7 +36,6 @@ Future<void> initialization() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
@@ -56,7 +55,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'IMDb Clone - Q',
         theme: appTheme,
-        //home: const HomePage(), //const MyHomePage(title: ''),
       ),
     );
   }

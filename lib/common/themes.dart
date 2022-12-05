@@ -29,27 +29,22 @@ ThemeData _appTheme() {
 TextTheme _appTextTheme(TextTheme base) => base.copyWith(
       titleLarge: base.titleLarge!.copyWith(
         fontSize: 24,
-        //height: 30,
         fontWeight: FontWeight.w600,
       ),
       titleMedium: base.titleMedium!.copyWith(
         fontSize: 22,
-        // height: 29,
         fontWeight: FontWeight.w600,
       ),
       titleSmall: base.titleSmall!.copyWith(
         fontSize: 15,
-        // height: 20,
         fontWeight: FontWeight.w600,
       ),
       bodyMedium: base.bodyMedium!.copyWith(
         fontSize: 13,
-        // height: 18,
         fontWeight: FontWeight.w300,
       ),
       bodySmall: base.bodySmall!.copyWith(
         fontSize: 12,
-        // height: 16,
         fontWeight: FontWeight.w400,
       ),
     );

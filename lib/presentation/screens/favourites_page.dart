@@ -17,7 +17,6 @@ class FavouritesPage extends StatelessWidget {
       create: (context) => GetFavouritesBloc(
         RepositoryProvider.of(context),
         RepositoryProvider.of(context),
-        RepositoryProvider.of(context),
       )..add(const GetFavouriteMoviesEvent()),
       child: BlocBuilder<GetFavouritesBloc, GetFavouritesState>(
         buildWhen: (previous, current) => previous != current,

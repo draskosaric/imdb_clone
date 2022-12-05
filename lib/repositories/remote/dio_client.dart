@@ -1,16 +1,16 @@
 // Singleton instance
 import 'package:dio/dio.dart';
-import 'package:imdb_clone/repositories/local/token_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_token_repository.dart';
 
 class DioClient {
   late Dio dio;
-  late TokenRepository _tokenRepository;
+  late ITokenRepository _tokenRepository;
 
   static final DioClient _client = DioClient._internal();
   factory DioClient() => _client;
   DioClient._internal();
 
-  void init(String baseDomain, String refreshTokenUrl, TokenRepository tokenRepository) {
+  void init(String baseDomain, String refreshTokenUrl, ITokenRepository tokenRepository) {
     final BaseOptions baseOptions = BaseOptions(
       connectTimeout: 5000,
       receiveTimeout: 3000,

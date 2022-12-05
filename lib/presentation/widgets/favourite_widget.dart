@@ -26,7 +26,6 @@ class FavouriteWidget extends StatelessWidget {
             customBorder: const CircleBorder(),
             onTap: () {
               context.read<ListenFavouriteBloc>().add(ChangeFavouriteEvent(movieId: movie.id));
-              //context.read<ChangeMovieFavouriteCubit>().changeMovieFavourite(movie.id);
             },
             child: Container(
               height: 40,
@@ -51,7 +50,7 @@ class StateFavouriteWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     if (state.status.isFetched) {
       return FaveIcon(
-        isFavourite: state.isFavourite ?? false, //(state as ChangeMovieFavouriteInitial).isAdded ?? false,
+        isFavourite: state.isFavourite ?? false,
       );
     }
     if (state.status.isLoading) {

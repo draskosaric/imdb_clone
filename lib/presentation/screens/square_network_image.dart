@@ -16,15 +16,9 @@ class SquareNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) => AspectRatio(
         aspectRatio: 1,
         child: CachedNetworkImage(
-          fit: BoxFit.cover, // OR BoxFit.fitWidth
+          fit: BoxFit.cover,
           alignment: FractionalOffset.center,
           imageUrl: url,
-          // placeholder: (context, url) => showPlaceholder
-          //     ? Padding(
-          //         padding: const EdgeInsets.all(16.0),
-          //         child: Image.asset("assets/icons/q_logo.png"),
-          //       )
-          //     : null,
           errorWidget: (context, url, error) => Container(
             height: MediaQuery.of(context).size.height,
             color: AppColors.chipDefaultColor,

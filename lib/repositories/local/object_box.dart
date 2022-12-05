@@ -9,7 +9,7 @@ class ObjectBox {
 
   static Future<ObjectBox> create() async {
     final docsDir = await getApplicationDocumentsDirectory();
-    final store = openStore(directory: p.join(docsDir.path, "obx"));
+    final store = await openStore(directory: p.join(docsDir.path, "obx"));
     return ObjectBox._create(store);
   }
 }

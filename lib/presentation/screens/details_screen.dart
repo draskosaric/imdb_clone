@@ -44,7 +44,7 @@ class DetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          OutlinedButton(
+          TextButton(
             onPressed: () {
               context.pop();
             },
@@ -59,24 +59,6 @@ class DetailsScreen extends StatelessWidget {
               ),
             ),
           ),
-          // InkWell(
-          //   customBorder: const CircleBorder(),
-          //   onTap: () {
-          //     print("onTap");
-          //     context.pop();
-          //   },
-          //   child: Container(
-          //     color: Colors.red,
-          //     height: 66,
-          //     padding: const EdgeInsets.only(left: 16, top: 28, right: 16, bottom: 20),
-          //     child: SvgPicture.asset(
-          //       'assets/images/arrow_back.svg',
-          //       color: AppColors.defaultTextColor,
-          //       height: 10,
-          //       width: 20,
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

@@ -4,22 +4,19 @@ import 'package:imdb_clone/bloc/mappers/movie_mapper.dart';
 import 'package:imdb_clone/common/const.dart';
 import 'package:imdb_clone/models/movie.dart';
 import 'package:imdb_clone/repositories/local/dao/movie_dao.dart';
-import 'package:imdb_clone/repositories/local/favourites_local_repository.dart';
-import 'package:imdb_clone/repositories/local/genre_local_repository.dart';
-import 'package:imdb_clone/repositories/local/movies_local_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_favourites_local_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_movies_local_repository.dart';
 
 part 'get_favourites_event.dart';
 part 'get_favourites_state.dart';
 
 class GetFavouritesBloc extends Bloc<GetFavouritesEvent, GetFavouritesState> {
-  final FavouritesLocalRepository _favouritesLocalRepository;
-  final GenreLocalRepository _genreLocalRepository;
-  final MoviesLocalRepository _moviesLocalRepository;
+  final IFavouritesLocalRepository _favouritesLocalRepository;
+  final IMoviesLocalRepository _moviesLocalRepository;
 
   GetFavouritesBloc(
     this._favouritesLocalRepository,
     this._moviesLocalRepository,
-    this._genreLocalRepository,
   ) : super(const GetFavouritesState()) {
     on<GetFavouriteMoviesEvent>(_mapGetFavouriteMoviesEvent);
   }

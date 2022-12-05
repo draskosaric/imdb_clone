@@ -2,7 +2,7 @@ import 'package:imdb_clone/models/genre.dart';
 import 'package:imdb_clone/models/movie.dart';
 import 'package:imdb_clone/repositories/local/dao/genre_dao.dart';
 import 'package:imdb_clone/repositories/local/dao/movie_dao.dart';
-import 'package:imdb_clone/repositories/local/genre_local_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_genre_local_repository.dart';
 import 'package:imdb_clone/repositories/remote/dto/genre_dto.dart';
 import 'package:imdb_clone/repositories/remote/dto/movie_simple_dto.dart';
 
@@ -15,7 +15,7 @@ Movie mapMovie(
       id: movie.id,
       title: movie.title,
       rate: movie.averageVote,
-      isFavourite: false, // it will not affect
+      isFavourite: false,
       genres: movie.genres.map((genre) => mapGenre(genre)).toList(),
       description: movie.description,
       imageUrl: "$basePathImage${movie.posterPath}",
@@ -33,7 +33,7 @@ GenreDao mapGenreDto(GenreDto genreDto) => GenreDao(
       name: genreDto.name,
     );
 
-Future<MovieDao> mapByMovieDto(MovieSimpleDto mDto, int orderNumber, GenreLocalRepository genreLocalRepository) async {
+Future<MovieDao> mapByMovieDto(MovieSimpleDto mDto, int orderNumber, IGenreLocalRepository genreLocalRepository) async {
   final movie = MovieDao(
       id: mDto.id,
       title: mDto.title,

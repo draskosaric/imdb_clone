@@ -8,7 +8,6 @@ class MovieDao {
   String title;
   double averageVote;
   final genres = ToMany<GenreDao>();
-  //List<GenreDao> genres;
   String description;
   String posterPath;
   @Index()

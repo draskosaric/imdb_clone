@@ -7,24 +7,24 @@ import 'package:imdb_clone/common/exceptions.dart';
 import 'package:imdb_clone/extensions/date_extensions.dart';
 import 'package:imdb_clone/models/movie.dart';
 import 'package:imdb_clone/repositories/local/dao/movie_dao.dart';
-import 'package:imdb_clone/repositories/local/favourites_local_repository.dart';
-import 'package:imdb_clone/repositories/local/genre_local_repository.dart';
-import 'package:imdb_clone/repositories/local/movies_local_repository.dart';
-import 'package:imdb_clone/repositories/local/shared_prefs_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_favourites_local_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_genre_local_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_movies_local_repository.dart';
+import 'package:imdb_clone/repositories/local/interfaces/i_shared_preferences_repository.dart';
 import 'package:imdb_clone/repositories/remote/dto/movie_simple_dto.dart';
-import 'package:imdb_clone/repositories/remote/remote_genres_repository.dart';
-import 'package:imdb_clone/repositories/remote/remote_movies_repository.dart';
+import 'package:imdb_clone/repositories/remote/interfaces/i_remote_genres_repository.dart';
+import 'package:imdb_clone/repositories/remote/interfaces/i_remote_movies_repository.dart';
 
 part 'fetch_popular_event.dart';
 part 'fetch_popular_state.dart';
 
 class FetchPopularBloc extends Bloc<FetchPopularEvent, FetchPopularState> {
-  final SharedPreferencesRepository _sharedPreferencesRepository;
-  final RemoteGenresRepository _remoteGenresRepository;
-  final RemoteMoviesRepository _remoteMoviesRepository;
-  final MoviesLocalRepository _moviesLocalRepository;
-  final GenreLocalRepository _genreLocalRepository;
-  final FavouritesLocalRepository _favouritesLocalRepository;
+  final ISharedPreferencesRepository _sharedPreferencesRepository;
+  final IRemoteGenresRepository _remoteGenresRepository;
+  final IRemoteMoviesRepository _remoteMoviesRepository;
+  final IMoviesLocalRepository _moviesLocalRepository;
+  final IGenreLocalRepository _genreLocalRepository;
+  final IFavouritesLocalRepository _favouritesLocalRepository;
 
   FetchPopularBloc(this._sharedPreferencesRepository, this._remoteGenresRepository, this._remoteMoviesRepository,
       this._moviesLocalRepository, this._genreLocalRepository, this._favouritesLocalRepository)
@@ -39,7 +39,6 @@ class FetchPopularBloc extends Bloc<FetchPopularEvent, FetchPopularState> {
     try {
       _fetchGenres();
       final fetchedMovies = await _fetchMovies(state.page);
-
       emit(
         state.copyWith(
           status: FetchPopularStatus.fetchPopularFinished,
@@ -57,7 +56,6 @@ class FetchPopularBloc extends Bloc<FetchPopularEvent, FetchPopularState> {
           : FetchPopularStatus.fetchPopularError;
       emit(state.copyWith(status: newStatus));
     } catch (ex) {
-      print(ex);
       emit(state.copyWith(status: FetchPopularStatus.fetchPopularError));
     }
   }
@@ -67,13 +65,13 @@ class FetchPopularBloc extends Bloc<FetchPopularEvent, FetchPopularState> {
     if (lastGenreFetch.isToday) return;
     final genreDtos = await _remoteGenresRepository.fetchGenres();
     await _genreLocalRepository.addGenres(genreDtos.map((g) => mapGenreDto(g)).toList());
-    _sharedPreferencesRepository.setLastGenreFetch(DateTime.now());
+    await _sharedPreferencesRepository.setLastGenreFetch(DateTime.now());
   }
 
   Future<List<MovieDao>> _fetchMovies(int page) async {
     final lastMovieFetch = await _sharedPreferencesRepository.getLastMovieFetch();
     if (!lastMovieFetch.isToday) {
-      _sharedPreferencesRepository.setLastPageFetched(0);
+      await _sharedPreferencesRepository.setLastPageFetched(0);
       _moviesLocalRepository.clearMovies();
     }
     final lastPageFetched = await _sharedPreferencesRepository.getLastPageFetched();

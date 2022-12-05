@@ -22,8 +22,7 @@ class MovieTextInfo extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Hero(
-              tag: "title${movie.imageUrl}",
+            Expanded(
               child: Text(
                 movie.title,
                 style: movieTitleTextStyle(context),
@@ -31,17 +30,13 @@ class MovieTextInfo extends StatelessWidget {
             ),
             FavouriteWidget(
               movie: movie,
-              //onChangeFavorite: (_) {},
             ),
           ],
         ),
         const SizedBox(
           height: 8.0,
         ),
-        Hero(
-          tag: "rate${movie.imageUrl}",
-          child: RatingWidget(rate: movie.rate),
-        ),
+        RatingWidget(rate: movie.rate),
         const SizedBox(
           height: 8.0,
         ),

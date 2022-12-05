@@ -44,20 +44,20 @@ class _HomePageState extends State<HomePage> {
               label: 'Popular',
             ),
             BottomNavigationBarItem(
-                activeIcon: SvgPicture.asset(
-                  'assets/images/fave_icon_checked.svg',
-                  color: AppColors.qDefaultColor,
-                  height: 20,
-                  width: 20,
-                ),
-                icon: SvgPicture.asset(
-                  'assets/images/fave_icon_checked.svg',
-                  color: Colors.white,
-                  //color: AppColors.qDefaultColor,
-                  height: 20,
-                  width: 20,
-                ),
-                label: 'Popular'),
+              activeIcon: SvgPicture.asset(
+                'assets/images/fave_icon_checked.svg',
+                color: AppColors.qDefaultColor,
+                height: 20,
+                width: 20,
+              ),
+              icon: SvgPicture.asset(
+                'assets/images/fave_icon_checked.svg',
+                color: Colors.white,
+                height: 20,
+                width: 20,
+              ),
+              label: 'Popular',
+            ),
           ]),
     );
   }
